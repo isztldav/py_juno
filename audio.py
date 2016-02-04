@@ -1,19 +1,31 @@
 #!/usr/bin/python
 
+# http://www.chromium.org/developers/how-tos/api-keys
+# https://pypi.python.org/pypi/speech/0.5.2  speech
+# http://stackoverflow.com/questions/19828332/how-to-embed-google-speech-to-text-api-in-python-program
+# https://people.csail.mit.edu/hubert/pyaudio/
+# https://pypi.python.org/pypi/SpeechRecognition/
+# https://github.com/trakons/py_juno/blob/master/audio.py
+
 #########  IMPORTS
 
 import sys
 import os
 import urllib2
 import json
+
+## record
 import pyaudio
 import wave
+
+## speech
+import pyttsx
 
 #########
 
 ##########  CONFIG
 
-LANG = 'en-us' #it-it en-us
+LANG = 'en-US' #it-IT en-US
 ENCODING = 'l16' # x-flac l16
 RATE = '16000' #16000
 APIKEY = 'AIzaSyBHvqYmj-7GZFF-9r-8jZMDxdvyVhh7khg'
@@ -92,6 +104,11 @@ def logo():
         ~ By Trakons
     """
 
+def speech(txt):
+    engine = pyttsx.init()
+    engine.say(txt)
+    engine.runAndWait()
+
 #########
 
 
@@ -108,8 +125,14 @@ logo()
 record()
 
 f = open('.testoutput.wav')
+#f = open ('hello16bit.wav')
 audio = f.read()
 f.close()
 
-print result(audio)
+#print result(audio)
+data = result(audio)
+print '\nYou say: ',
+print data
+print '\nNow i try to repeat...'
+speech(data)
 os.remove(".testoutput.wav")
