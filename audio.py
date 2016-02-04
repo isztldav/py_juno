@@ -79,6 +79,19 @@ def result(datav):
         print 'Decoding JSON has failed'
         sys.exit(1)
 
+def logo():
+    print """
+                    <-. (`-')_            
+              .->      \( OO) )     .->   
+   <-.--.,--.(,--.  ,--./ ,--/ (`-')----. 
+ (`-'| ,||  | |(`-')|   \ |  | ( OO).-.  '
+ (OO |(_||  | |(OO )|  . '|  |)( _) | |  |
+,--. |  ||  | | |  \|  |\    |  \|  |)|  |
+|  '-'  /\  '-'(_ .'|  | \   |   '  '-'  '
+ `-----'  `-----'   `--'  `--'    `-----' 
+        ~ By Trakons
+    """
+
 #########
 
 
@@ -90,6 +103,8 @@ def result(datav):
 
 #f = open(filename)
 
+
+logo()
 record()
 
 f = open('.testoutput.wav')
