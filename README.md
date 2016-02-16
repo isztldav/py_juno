@@ -5,4 +5,4 @@
 * $ pip install pyaudio
 * $ pip install pyttsx
 * $ chmod +x voice.py
-* $ ./voice.py
+* $ ./audio.py
